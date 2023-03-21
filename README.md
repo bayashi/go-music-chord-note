@@ -23,9 +23,9 @@
     println(chord[2]) // "G"
 
     chordn, _ := chord.GetChordAsNumberList("D")
-    println(chord[0]) // "D"
-    println(chord[1]) // "F#"
-    println(chord[2]) // "A"
+    println(chordn[0]) // "D"
+    println(chordn[1]) // "F#"
+    println(chordn[2]) // "A"
 
 See tests for more functions.
 
