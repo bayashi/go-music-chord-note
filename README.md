@@ -11,21 +11,23 @@
         "github.com/bayashi/go-music-chord-note/chord"
     )
 
-    n, _ := note.NoteNumber("Db") // "Db"
-    println(n) // 1
+    func play() {
+        n, _ := note.NoteNumber("Db") // "Db"
+        println(n) // 1
 
-    n2, _ := note.NoteNumber("C9") // "C" on octave 9
-    println(n2) // 120
+        n2, _ := note.NoteNumber("C9") // "C" on octave 9
+        println(n2) // 120
 
-    chord, _ := chord.GetChord("C")
-    println(chord[0]) // "C"
-    println(chord[1]) // "E"
-    println(chord[2]) // "G"
+        chord, _ := chord.GetChord("C")
+        println(chord[0]) // "C"
+        println(chord[1]) // "E"
+        println(chord[2]) // "G"
 
-    chordn, _ := chord.GetChordAsNumberList("D")
-    println(chordn[0]) // "D"
-    println(chordn[1]) // "F#"
-    println(chordn[2]) // "A"
+        chordn, _ := chord.GetChordAsNumberList("D")
+        println(chordn[0]) // "D"
+        println(chordn[1]) // "F#"
+        println(chordn[2]) // "A"
+    }
 
 See tests for more functions.
 
