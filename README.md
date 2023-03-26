@@ -4,29 +4,29 @@
 
 ## Usage
 
-    package music
+    package main
 
     import (
         "github.com/bayashi/go-music-chord-note/note"
         "github.com/bayashi/go-music-chord-note/chord"
     )
 
-    func play() {
+    func main() {
         n, _ := note.NoteNumber("Db") // "Db"
         println(n) // 1
 
         n2, _ := note.NoteNumber("C9") // "C" on octave 9
         println(n2) // 120
 
-        chord, _ := chord.GetChord("C")
-        println(chord[0]) // "C"
-        println(chord[1]) // "E"
-        println(chord[2]) // "G"
+        chordName, _ := chord.GetChord("Csus4")
+        println(chordName[0]) // "C"
+        println(chordName[1]) // "F"
+        println(chordName[2]) // "G"
 
-        chordn, _ := chord.GetChordAsNumberList("D")
-        println(chordn[0]) // "D"
-        println(chordn[1]) // "F#"
-        println(chordn[2]) // "A"
+        chordNumber, _ := chord.GetChordAsNumberList("sus4")
+        println(chordNumber[0]) // "0"
+        println(chordNumber[1]) // "5"
+        println(chordNumber[2]) // "7"
     }
 
 See tests for more functions.
