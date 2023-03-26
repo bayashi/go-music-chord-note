@@ -9,6 +9,7 @@
     import (
         "github.com/bayashi/go-music-chord-note/note"
         "github.com/bayashi/go-music-chord-note/chord"
+        "github.com/bayashi/go-music-chord-note/scale"
     )
 
     func main() {
@@ -27,15 +28,23 @@
         println(chordNumber[0]) // "0"
         println(chordNumber[1]) // "5"
         println(chordNumber[2]) // "7"
+
+        scaleNumber, _ := scale.GetScale("Ionian")
+        println(scaleNumber[0]) // "0"
+        println(scaleNumber[1]) // "2"
+        println(scaleNumber[2]) // "4"
+        println(scaleNumber[3]) // "5"
+        println(scaleNumber[4]) // "7"
+        println(scaleNumber[5]) // "9"
+        println(scaleNumber[6]) // "11"
     }
 
 See tests for more functions.
 
 ## TODO
 
-* Write more documents.
 * Add functions to return notes in YAMAHA style.
-* Add a utility to get some scales.
+* Add a feature to treat original chords or scales.
 
 ## Installation
 
