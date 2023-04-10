@@ -1,20 +1,10 @@
 package chord
 
-import "testing"
+import (
+	"testing"
 
-func isNil(t *testing.T, something interface{}) {
-	if something != nil {
-		t.Errorf(`Expect "nil". But, got "%v".`, something)
-		t.FailNow()
-	}
-}
-
-func isNotNil(t *testing.T, something interface{}) {
-	if something == nil {
-		t.Errorf(`Expect other than "nil". But, got nil.`)
-		t.FailNow()
-	}
-}
+	"github.com/bayashi/actually"
+)
 
 func TestAllChords(t *testing.T) {
 	if len(allChords()) != 75 {
@@ -51,7 +41,7 @@ func TestGetChordAsNumberList(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			actual, err := GetChordAsNumberList(test.name);
-			isNil(t, err)
+			actually.Got(err).FailNow().Nil(t)
 			if len(actual) != len(test.want) {
 				t.Errorf(`GetChordAsNumberList("%v"), actual:"%v", want:"%v"`, test.name, actual, test.want)
 			}
@@ -78,7 +68,7 @@ func TestGetChordAsNumberListError(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			got, err := GetChordAsNumberList(test.name);
-			isNotNil(t, err)
+			actually.Got(err).FailNow().NotNil(t)
 			if len(got) != 0 {
 				t.Errorf(`GetChordAsNumberList("%v") wants empty result. But got (%v).`, test.name, got)
 			}
@@ -119,7 +109,7 @@ func TestGetChord(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			actual, err := GetChord(test.name);
-			isNil(t, err)
+			actually.Got(err).FailNow().Nil(t)
 			if len(actual) != len(test.want) {
 				t.Errorf(`GetChord("%v"), actual:"%v", want:"%v"`, test.name, actual, test.want)
 			}
@@ -150,7 +140,7 @@ func TestGetChordError(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			got, err := GetChord(test.name);
-			isNotNil(t, err)
+			actually.Got(err).FailNow().NotNil(t)
 			if len(got) != 0 {
 				t.Errorf(`GetChord("%v") wants empty result. But got (%v).`, test.name, got)
 			}
@@ -192,7 +182,7 @@ func TestGetChordWithOctave(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			actual, err := GetChordWithOctave(test.name, test.octave);
-			isNil(t, err)
+			actually.Got(err).FailNow().Nil(t)
 			if len(actual) != len(test.want) {
 				t.Errorf(`GetChordWithOctave("%v, %v"), actual:"%v", want:"%v"`, test.name, test.octave, actual, test.want)
 			}
@@ -227,7 +217,7 @@ func TestGetChordWithOctaveError(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			got, err := GetChordWithOctave(test.name, test.octave);
-			isNotNil(t, err)
+			actually.Got(err).FailNow().NotNil(t)
 			if len(got) != 0 {
 				t.Errorf(`GetChord("%v") wants empty result. But got (%v).`, test.name, got)
 			}
